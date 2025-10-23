@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+using System.Threading;
+
+namespace credsinjson {
+	class main {
+		static void Main() {
+			Console.WriteLine("Welcome to Credintials to JSON, another c# program written for credintials"); // Welcome Text
+			Console.WriteLine("You will need to enter: Your name, email, current age and a password");
+			Thread.Sleep(3000);
+			Console.WriteLine("Name: ");
+			string name = Console.ReadLine(); // Name data
+			Thread.Sleep(3000);
+			Console.WriteLine("Email: "); 
+			string email = Console.ReadLine(); // Email Data
+			Console.WriteLine("Current Age: ");
+			int input = int.Parse(Console.ReadLine());
+			int age = input; // Age Data
+			Thread.Sleep(3000);
+			Console.WriteLine("Enter a safe password: ");
+			string pwd = Console.ReadLine(); // Password Data
+			Console.Clear();
+			Thread.Sleep(3000);
+			string maindata = @"{" + "\"name\"" + ":" + "\"" + name + "\"," +  "\"email:\"" + ":" + "\"" + email + "\"," + "\"Age:\"" + ":" + age + ",\"Password\"" + ":" + "\"" + pwd + "\"" + "}"; // Converts given data to a json file
+			File.WriteAllText("Creds.json", maindata); // Exports the JSON data along a name
+			Console.WriteLine("Exported to json!");
+		}
+	}
+}
